@@ -117,7 +117,7 @@ def backtest(symbol, start_date, end_date, strategy, initial_capital, commission
             f.write(report)
         click.echo(f"Results saved to {output}")
     
-    click.echo("\nBacktest completed successfully!")
+    click.echo("\nBacktest completed.")
 
 @cli.command()
 @click.option('--symbol', default='AAPL', help='Trading symbol')
@@ -190,7 +190,7 @@ def compare(symbol, start_date, end_date, initial_capital, data_source):
     visualizer = BacktestVisualizer()
     visualizer.plot_strategy_comparison(results)
     
-    click.echo("\nStrategy comparison completed!")
+    click.echo("\nStrategy comparison completed.")
 
 @cli.command()
 @click.option('--symbol', default='AAPL', help='Trading symbol')

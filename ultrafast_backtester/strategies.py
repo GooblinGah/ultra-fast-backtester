@@ -9,7 +9,7 @@ All strategies inherit from BaseStrategy and implement the generate_signals meth
 import numpy as np
 import pandas as pd
 from typing import List, Dict, Tuple
-from backtester import SignalEvent
+from .backtester import SignalEvent
 from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')

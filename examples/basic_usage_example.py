@@ -13,10 +13,10 @@ from datetime import datetime, timedelta
 import warnings
 warnings.filterwarnings('ignore')
 
-from backtester import UltraFastBacktester
-from strategies import create_strategy, strategy_wrapper
-from data_loader import create_data_loader
-from visualization import BacktestVisualizer, create_performance_report
+from ultrafast_backtester.backtester import UltraFastBacktester
+from ultrafast_backtester.strategies import create_strategy, strategy_wrapper
+from ultrafast_backtester.data_loader import create_data_loader
+from ultrafast_backtester.visualization import BacktestVisualizer, create_performance_report
 
 
 def create_sample_data():

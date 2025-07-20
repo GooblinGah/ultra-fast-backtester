@@ -2,31 +2,22 @@
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://github.com/GooblinGah/ultra-fast-backtester/workflows/Tests/badge.svg)](https://github.com/GooblinGah/ultra-fast-backtester/actions)
 
-## ⚠️ Development Status
-
-This project is currently in **active development**. While functional, it's not yet production-ready.
-- Not yet published to PyPI
-- API may change
-
-Feel free to try it out and provide feedback!
-
-An event-driven backtesting framework for algorithmic trading strategies with built-in machine learning capabilities.
+An event-driven backtesting framework for algorithmic trading strategies with machine learning capabilities.
 
 ## Features
 
-- **Event-Driven Architecture**: Efficient processing with JIT compilation
-- **Real Market Data**: Yahoo Finance integration for historical data
-- **Multiple Strategies**: 8+ built-in trading strategies
-- **Machine Learning Ready**: Feature engineering and ML model training utilities
-- **Professional Metrics**: Sharpe ratio, drawdown, volatility, and more
-- **Easy Extension**: Simple inheritance model for custom strategies
-- **CLI Interface**: Command-line tools for quick testing
-- **Visualization**: Comprehensive plotting and reporting
+- Event-driven architecture for efficient backtesting
+- Real market data integration via Yahoo Finance
+- Multiple built-in trading strategies
+- Machine learning utilities for feature engineering and model training
+- Comprehensive performance metrics calculation
+- Extensible strategy framework
+- Command-line interface for batch testing
+- Visualization and reporting tools
 
 ## Installation
-
-**Note: This package is currently in development and not yet published to PyPI.**
 
 ### From Source
 ```bash
@@ -96,47 +87,32 @@ print(f"Accuracy: {result['metrics']['accuracy']:.3f}")
 print(f"Feature Importance: {result['feature_importance']}")
 ```
 
-### ML-Based Strategy
-```python
-class MLStrategy:
-    def __init__(self, symbol, model_trainer, model_type='random_forest'):
-        self.symbol = symbol
-        self.model_trainer = model_trainer
-        self.model_type = model_type
-    
-    def generate_signals(self, data, positions, cash):
-        # Use ML model to generate trading signals
-        prediction, probability = self.model_trainer.predict(data, self.model_type)
-        # Generate signals based on prediction
-        return signals
-```
-
 ## Built-in Strategies
 
-| Strategy | Description | Best For |
+| Strategy | Description | Use Case |
 |----------|-------------|----------|
-| **Simple Profitable** | RSI + Moving Average combination | Trend following with momentum |
-| **Trend Following** | Momentum-based trend detection | Strong trending markets |
-| **MA Crossover** | Golden/Death cross signals | Medium-term trends |
-| **Mean Reversion** | Bollinger Bands mean reversion | Range-bound markets |
-| **Momentum RSI** | RSI overbought/oversold signals | Short-term momentum |
-| **Dual Thrust** | Breakout strategy | Volatile markets |
-| **Grid Trading** | Multi-level grid system | Sideways markets |
-| **Volatility Breakout** | Volatility expansion signals | Breakout opportunities |
+| Simple Profitable | RSI + Moving Average combination | Trend following with momentum |
+| Trend Following | Momentum-based trend detection | Strong trending markets |
+| MA Crossover | Golden/Death cross signals | Medium-term trends |
+| Mean Reversion | Bollinger Bands mean reversion | Range-bound markets |
+| Momentum RSI | RSI overbought/oversold signals | Short-term momentum |
+| Dual Thrust | Breakout strategy | Volatile markets |
+| Grid Trading | Multi-level grid system | Sideways markets |
+| Volatility Breakout | Volatility expansion signals | Breakout opportunities |
 
 ## Performance Metrics
 
-- **Total Return**: Overall portfolio performance
-- **Annualized Return**: Yearly return rate
-- **Sharpe Ratio**: Risk-adjusted returns
-- **Maximum Drawdown**: Largest peak-to-trough decline
-- **Volatility**: Portfolio risk measure
-- **Win Rate**: Percentage of profitable trades
-- **Total Trades**: Number of executed trades
+- Total Return: Overall portfolio performance
+- Annualized Return: Yearly return rate
+- Sharpe Ratio: Risk-adjusted returns
+- Maximum Drawdown: Largest peak-to-trough decline
+- Volatility: Portfolio risk measure
+- Win Rate: Percentage of profitable trades
+- Total Trades: Number of executed trades
 
 ## Custom Strategies
 
-Create your own strategy by inheriting from `BaseStrategy`:
+Create custom strategies by inheriting from `BaseStrategy`:
 
 ```python
 from ultrafast_backtester import BaseStrategy, SignalEvent
@@ -150,7 +126,7 @@ class MyCustomStrategy(BaseStrategy):
     def generate_signals(self, data, positions, cash):
         signals = []
         
-        # Your strategy logic here
+        # Strategy logic here
         if buy_condition:
             signals.append(SignalEvent(
                 timestamp=data.name,
@@ -175,10 +151,26 @@ ultra-fast-backtester/
 │   └── ml_utils.py               # Machine learning utilities
 ├── examples/                     # Example scripts
 │   └── ml_strategy_training.py   # ML training example
+├── tests/                        # Test suite
 ├── cli.py                        # Command line interface
 ├── setup.py                      # Package setup
 ├── requirements.txt              # Dependencies
 └── README.md                     # This file
+```
+
+## Testing
+
+Run the comprehensive test suite:
+
+```bash
+# Quick validation tests
+python -m pytest tests/quick_validation_test.py -v
+
+# Focused extensive tests
+python -m pytest tests/focused_extensive_test.py -v
+
+# Full test suite
+python -m pytest tests/ -v
 ```
 
 ## Examples
@@ -203,11 +195,11 @@ for strategy in strategies:
 plot_strategy_comparison(results)
 ```
 
-## Performance
+## Performance Characteristics
 
-- **Memory**: Efficient memory usage with vectorized operations
-- **Scalability**: Supports multiple symbols and strategies
-- **Accuracy**: Real market data with proper event processing
+- Memory efficient with vectorized operations
+- Scalable for multiple symbols and strategies
+- Accurate event processing with real market data
 
 ## Contributing
 
@@ -221,21 +213,20 @@ plot_strategy_comparison(results)
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-
-
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/GooblinGah/ultra-fast-backtester/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/GooblinGah/ultra-fast-backtester/discussions)
-- **Email**: adi.siv@berkeley.edu
+- Issues: [GitHub Issues](https://github.com/GooblinGah/ultra-fast-backtester/issues)
+- Discussions: [GitHub Discussions](https://github.com/GooblinGah/ultra-fast-backtester/discussions)
+- Email: adi.siv@berkeley.edu
 
-## Acknowledgments
+## Dependencies
 
-- Built with [NumPy](https://numpy.org/) and [Pandas](https://pandas.pydata.org/)
-- Performance optimized with [Numba](https://numba.pydata.org/)
-- Data provided by [Yahoo Finance](https://finance.yahoo.com/)
-- Machine learning powered by [Scikit-learn](https://scikit-learn.org/)
+- Core: NumPy, Pandas, Numba
+- Data: yfinance, python-dateutil
+- ML: scikit-learn, xgboost, lightgbm
+- Visualization: matplotlib, seaborn, plotly
+- CLI: click, rich, tqdm
 
----
+## Disclaimer
 
-**Disclaimer**: This software is for educational and research purposes only. Past performance does not guarantee future results. Always do your own research before making investment decisions. 
+This software is for educational and research purposes only. Past performance does not guarantee future results. Always conduct thorough research before making investment decisions. 

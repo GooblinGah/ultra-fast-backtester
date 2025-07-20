@@ -614,7 +614,13 @@ class UltraFastBacktester:
         for index, row in data.iterrows():
             # Update current time and market data
             self.current_time = index
-            symbol = row.get('symbol', 'UNKNOWN')
+            
+            # Use a consistent symbol for the dataset
+            # If data has a name attribute, use it, otherwise use 'STOCK'
+            if hasattr(data, 'name') and data.name:
+                symbol = str(data.name)
+            else:
+                symbol = 'STOCK'
             
             # Validate row data
             if pd.isnull(row['close']) or row['close'] <= 0:

@@ -22,11 +22,11 @@ class TestUltraFastBacktester:
     def setup_method(self):
         """Set up test fixtures."""
         self.sample_data = pd.DataFrame({
-            'Open': [100, 101, 102, 103, 104],
-            'High': [102, 103, 104, 105, 106],
-            'Low': [99, 100, 101, 102, 103],
-            'Close': [101, 102, 103, 104, 105],
-            'Volume': [1000, 1100, 1200, 1300, 1400]
+            'open': [100, 101, 102, 103, 104],
+            'high': [102, 103, 104, 105, 106],
+            'low': [99, 100, 101, 102, 103],
+            'close': [101, 102, 103, 104, 105],
+            'volume': [1000, 1100, 1200, 1300, 1400]
         }, index=pd.date_range('2023-01-01', periods=5, freq='D'))
         
         self.initial_capital = 100000
@@ -84,13 +84,14 @@ class TestStrategies:
     def test_strategy_signal_generation(self):
         """Test strategy signal generation."""
         try:
+            # Test that BaseStrategy raises NotImplementedError
             strategy = BaseStrategy("AAPL")
             sample_data = pd.DataFrame({
-                'Close': [100, 101, 102, 103, 104]
+                'close': [100, 101, 102, 103, 104]
             }, index=pd.date_range('2023-01-01', periods=5, freq='D'))
             
-            signals = strategy.generate_signals(sample_data, {}, 100000)
-            assert isinstance(signals, list)
+            with pytest.raises(NotImplementedError):
+                strategy.generate_signals(sample_data, {}, 100000)
         except NameError:
             pytest.skip("BaseStrategy not available")
 
