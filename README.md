@@ -1,14 +1,21 @@
-# Ultra-Fast Backtester
+# Ultra Fast Backtester
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PyPI version](https://badge.fury.io/py/ultra-fast-backtester.svg)](https://badge.fury.io/py/ultra-fast-backtester)
 
-An ultra-fast, event-driven backtesting framework for algorithmic trading strategies with built-in machine learning capabilities.
+## ⚠️ Development Status
+
+This project is currently in **active development**. While functional, it's not yet production-ready.
+- Not yet published to PyPI
+- API may change
+
+Feel free to try it out and provide feedback!
+
+An event-driven backtesting framework for algorithmic trading strategies with built-in machine learning capabilities.
 
 ## Features
 
-- **Ultra-Fast Performance**: Event-driven architecture with JIT compilation
+- **Event-Driven Architecture**: Efficient processing with JIT compilation
 - **Real Market Data**: Yahoo Finance integration for historical data
 - **Multiple Strategies**: 8+ built-in trading strategies
 - **Machine Learning Ready**: Feature engineering and ML model training utilities
@@ -19,14 +26,11 @@ An ultra-fast, event-driven backtesting framework for algorithmic trading strate
 
 ## Installation
 
-### From PyPI
-```bash
-pip install ultra-fast-backtester
-```
+**Note: This package is currently in development and not yet published to PyPI.**
 
 ### From Source
 ```bash
-git clone https://github.com/yourusername/ultra-fast-backtester.git
+git clone https://github.com/GooblinGah/ultra-fast-backtester.git
 cd ultra-fast-backtester
 pip install -e .
 ```
@@ -201,7 +205,6 @@ plot_strategy_comparison(results)
 
 ## Performance
 
-- **Speed**: 1000+ data points processed in <1 second
 - **Memory**: Efficient memory usage with vectorized operations
 - **Scalability**: Supports multiple symbols and strategies
 - **Accuracy**: Real market data with proper event processing
@@ -218,15 +221,13 @@ plot_strategy_comparison(results)
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Documentation
 
-For detailed documentation, visit: [https://ultra-fast-backtester.readthedocs.io](https://ultra-fast-backtester.readthedocs.io)
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/ultra-fast-backtester/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/ultra-fast-backtester/discussions)
-- **Email**: contact@ultrafastbacktester.com
+- **Issues**: [GitHub Issues](https://github.com/GooblinGah/ultra-fast-backtester/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/GooblinGah/ultra-fast-backtester/discussions)
+- **Email**: adi.siv@berkeley.edu
 
 ## Acknowledgments
 
